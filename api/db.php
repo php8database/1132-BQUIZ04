@@ -85,6 +85,7 @@ function count(...$array){
     return $this->pdo->query($sql)->fetchColumn();
 }
 
+
 function arrayToSQL($array){
     $tmp=[];
     foreach($array as $key=>$value){
@@ -118,3 +119,6 @@ function dd($array){
     print_r($array);
     echo "</pre>";
 }
+
+
+$Mem=new DB("members");
