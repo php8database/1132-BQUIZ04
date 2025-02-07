@@ -85,7 +85,6 @@ function count(...$array){
     return $this->pdo->query($sql)->fetchColumn();
 }
 
-
 function arrayToSQL($array){
     $tmp=[];
     foreach($array as $key=>$value){
