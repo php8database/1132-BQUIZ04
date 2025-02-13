@@ -11,7 +11,7 @@ $row=$Mem->find($_GET['id']);
     </tr>
     <tr>
         <td class="tt ct">密碼</td>
-        <td class="pp"><?=str_repeat("*",strlen($row['acc']));?></td>
+        <td class="pp"><?=str_repeat("*",strlen($row['pw']));?></td>
     </tr>
     <tr>
         <td class="tt ct">姓名</td>
