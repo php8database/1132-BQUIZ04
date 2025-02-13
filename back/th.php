@@ -7,7 +7,7 @@
 </div>
 <div class="ct">
     新增中分類
-    <select name="selbig" id="selbit"></select>
+    <select name="selbig" id="selbig"></select>
     <input type="text" name="mid" id="mid">
     <button>新增</button>
 </div>
