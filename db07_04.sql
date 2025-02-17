@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2025-02-14 08:51:44
+-- 產生時間： 2025-02-17 08:09:32
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -117,7 +117,8 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`id`, `name`, `acc`, `pw`, `addr`, `email`, `tel`, `regdate`) VALUES
-(2, '蔡先生', 'mem02', 'fsdf', '大安區', 'tsai@gmail.com', '0923123221', '2025-02-07 05:51:21');
+(2, 'mem01', 'mem01', '1234', '大安區', 'tsai@gmail.com', '0923123221', '2025-02-07 05:51:21'),
+(4, 'mem02', 'mem02', '1234', '泰山區', 'mem02.test@gmail.com', '0961326990', '2025-02-17 06:14:40');
 
 -- --------------------------------------------------------
 
@@ -136,17 +137,20 @@ CREATE TABLE `types` (
 --
 
 INSERT INTO `types` (`id`, `name`, `big_id`) VALUES
-(1, '', 0),
-(2, '流行鞋區', 0),
-(3, '流行飾品', 0),
-(4, '背包', 0),
-(5, '男用流行皮件', 1),
-(6, '女用流行皮件', 1),
 (7, '少女鞋區', 2),
 (10, '紳士流行鞋區', 2),
-(11, '時尚手錶', 3),
-(12, '', 3),
-(13, '背包', 4);
+(13, '背包', 4),
+(17, '時尚珠寶', 3),
+(19, '男用皮件', 18),
+(20, '流行皮件', 0),
+(21, '男用皮件', 20),
+(22, '流行鞋區', 0),
+(23, '少女鞋區', 22),
+(24, '紳士流行涼鞋', 22),
+(25, '流行飾品', 0),
+(26, '時尚珠寶', 25),
+(27, '背包', 0),
+(28, '背包', 27);
 
 --
 -- 已傾印資料表的索引
@@ -208,13 +212,13 @@ ALTER TABLE `items`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
