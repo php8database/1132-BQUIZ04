@@ -67,7 +67,7 @@
                     $mids=$Type->all(['big_id'=>$big['id']]);
                     echo "<div class='s'>";
                     foreach($mids as $mid){
-                        echo "<a href='?type={$mid['id']}' style='background-color:rgb(248, 232, 158);'>";
+                        echo "<a href='?type={$mid['id']}' style='background-color: #7ee185;'>";
                         echo $mid['name'];
                         echo "</a>";
                     }
