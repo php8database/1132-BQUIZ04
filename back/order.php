@@ -1,4 +1,7 @@
+<!-- h2.ct -->
 <h2 class="ct">訂單管理</h2>
+
+<!-- table.all>(tr.tt.ct>td*6)+(tr.pp.ct>td*6) -->
 <table class="all">
     <tr class="tt ct">
         <td>訂單編號</td>
@@ -13,7 +16,11 @@
     foreach($rows as $row):
     ?>
     <tr class="pp ct">
-        <td><?=$row['no'];?></td>
+        <td>
+            <a href="?do=detail&id=<?=$row['id'];?>">
+                <?=$row['no'];?>
+            </a>
+        </td>
         <td><?=$row['total'];?></td>
         <td><?=$row['acc'];?></td>
         <td><?=$row['name'];?></td>
