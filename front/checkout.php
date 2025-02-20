@@ -1,5 +1,17 @@
-
 <?php
+
+// 第1方法：禁止空值進入結帳櫃檯！(有3方法)
+/* if(empty($_SESSION['cart'])){
+    to("index.php?do=buycart");
+    exit();
+} */
+
+// 第2方法：禁止空值進入結帳櫃檯，並帶提醒！
+/* if(empty($_SESSION['cart'])){
+    to("index.php?do=buycart&err=1");
+    exit();
+} */
+
 $user=$Mem->find(['acc'=>$_SESSION["Mem"]]);
 ?>
 <h2 class="ct">填寫資料</h2>
@@ -18,7 +30,7 @@ $user=$Mem->find(['acc'=>$_SESSION["Mem"]]);
     </tr>
     <tr>
         <td class="tt ct">聯絡地址</td>
-        <td class="pp"><input type="text" name="addr" id="addr"  value='<?=$user['addr'];?>'></td>
+        <td class="pp"><input type="text" name="addr" id="addr" value='<?=$user['addr'];?>'></td>
     </tr>
     <tr>
         <td class="tt ct">聯絡電話</td>
@@ -39,7 +51,7 @@ $user=$Mem->find(['acc'=>$_SESSION["Mem"]]);
         $item=$Item->find($id);
     ?>
     <tr class="pp">
-        <td ><?=$item['name'];?></td>
+        <td><?=$item['name'];?></td>
         <td class="ct"><?=$item['no'];?></td>
         <td class="ct"><?=$qt;?></td>
         <td class="ct"><?=$item['price'];?></td>
@@ -60,20 +72,25 @@ $user=$Mem->find(['acc'=>$_SESSION["Mem"]]);
     <button onclick="location.href='?do=buycart'">返回修改訂單</button>
 </div>
 <script>
-function checkout(){
-    let data={
-        name:$("#name").val(),
-        email:$("#email").val(),
-        addr:$("#addr").val(),
-        tel:$("#tel").val(),
-        total:<?=$sum;?>,
-        
+function checkout() {
+    let data = {
+        name: $("#name").val(),
+        email: $("#email").val(),
+        addr: $("#addr").val(),
+        tel: $("#tel").val(),
+        total: <?=$sum;?>,
+
     }
-    $.post("./api/checkout.php",data,function(){
+
+    // 第3方法：禁止空值進入結帳櫃檯，並且手動返回修改訂單按鈕再按繼續選購商品按鈕！
+    $.post("./api/checkout.php", data, function(res) {
+        if (res == '1') {
+            alert("購物車尚無商品，不需結帳");
+            return;
+        }
+
         alert("訂購成功\n感謝您的選購");
-        location.href='?do=main';
+        location.href = '?do=main';
     })
 }
-
-
 </script>

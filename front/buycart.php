@@ -14,6 +14,16 @@ if(!isset($_SESSION['Mem'])){
 ?>
 <h2 class="ct"><?=$_SESSION['Mem'];?>的購物車</h2>
 
+<?php
+
+// 第2方法：禁止空值進入結帳櫃檯，並帶提醒！
+
+/* if(isset($_GET['err']) && $_GET['err']==1){
+    echo "<h2 class='ct' style='font-size:26px;color:red'>購物車尚無商品，不需結帳</h2>";
+} */
+
+?>
+
 <table class="all">
     <tr class="tt ct">
         <td>編號</td>
@@ -30,7 +40,7 @@ if(!isset($_SESSION['Mem'])){
     ?>
     <tr class="pp">
         <td class="ct"><?=$item['no'];?></td>
-        <td ><?=$item['name'];?></td>
+        <td><?=$item['name'];?></td>
         <td class="ct"><?=$qt;?></td>
         <td class="ct"><?=$item['stock'];?></td>
         <td class="ct"><?=$item['price'];?></td>
@@ -52,9 +62,11 @@ if(!isset($_SESSION['Mem'])){
     <img src="./icon/0412.jpg" onclick="location.href='?do=checkout'">
 </div>
 <script>
-    function delCart(id){
-        $.post("./api/delcart.php",{id},function(){
-            location.href='?do=buycart';
-        })
-    }
+function delCart(id) {
+    $.post("./api/delcart.php", {
+        id
+    }, function() {
+        location.href = '?do=buycart';
+    })
+}
 </script>
