@@ -1,7 +1,4 @@
-<!-- h2.ct -->
 <h2 class="ct">訂單管理</h2>
-
-<!-- table.all>(tr.tt.ct>td*6)+(tr.pp.ct>td*6) -->
 <table class="all">
     <tr class="tt ct">
         <td>訂單編號</td>
