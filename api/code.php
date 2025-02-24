@@ -169,4 +169,5 @@
          //使用base64的方式把緩衝區中的二進位圖形資料轉成base64的字串格式回傳出去
          //前方的data:image/png:base64, 是資料格式的宣告,讓瀏灠器可以知道這一段文字的功能是什麼
          return "data:image/png;base64," . base64_encode($output);
+         
      }
